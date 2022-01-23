@@ -1,3 +1,5 @@
+//  todays date from moment library
+
 const toDate = new Date();
 document.getElementById("currentDay").innerHTML = moment().format('LLLL');
 
@@ -20,36 +22,35 @@ function colorBlocks() {
 
     var currentHour = moment().hour();
 
-    $(".time-block").each(function(){
+    $(".time-block").each(function () {
 
         var colorBlock = $(this).attr("id");
 
-        //colorBlock = parseInt(colorBlock[1]);
-        console.log(colorBlock);
+        //console.log(colorBlock);
 
+        // task bar to color grey - past time frame 
 
-       
-       if (colorBlock < currentHour) 
-        {  
-            
-           // $(this).css("background-color","red");
- 
-           // $(".time-block").addclass("past");
+        if (colorBlock < currentHour) {
 
-           $(this).addClass("past");
-            
-       }
+            // $(this).css("background-color","red");
+            // $(".time-block").addclass("past");
 
-       else if (colorBlock == currentHour) 
-        { 
-           // $(this).css("background-color","red");
-           //$(".time-block").addclass("present");
-           $(this).addClass("present");
-         }
-//
+            $(this).addClass("past");
+        }
+
+        //task bar to color red -present time frame
+
+        else if (colorBlock == currentHour) {
+            // $(this).css("background-color","red");
+            //$(".time-block").addclass("present");
+
+            $(this).addClass("present");
+        }
+
+        // task bar to turn green for future time frame
         else {
 
-           // $(".time-block").addclass("future");
+            // $(".time-block").addclass("future");
             //$(this).css("background-color","green");
             $(this).addClass("future");
 
@@ -60,30 +61,28 @@ function colorBlocks() {
 
 colorBlocks();
 
-// Save Buttons 
+// Save Buttons to save in local storage
 
-$(".saveBtn").on("click",function(){
+$(".saveBtn").on("click", function () {
 
     var task = $(this).parent().attr("id");
     var taskInfo = $(this).siblings(".text").val();
     console.log(taskInfo);
-    localStorage.setItem (task, taskInfo);
+    localStorage.setItem(task, taskInfo);
 
 })
 
 
-// function 
+// function for storage Information
+function getTaskInfo() {
 
-function getTaskInfo () {
 
+    for (var i = 9; i < 18; i++) {
+        var storageInfo = localStorage.getItem(i);
+        $("#" + i).children(".text").val(storageInfo);
 
-   for ( var i=9; i<18 ; i++) 
-   {
-     var storageInfo = localStorage.getItem(i);
-     $("#" + i).children(".text").val(storageInfo);
+    }
 
-   }
-   
 }
 
 getTaskInfo();
