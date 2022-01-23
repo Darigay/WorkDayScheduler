@@ -2,8 +2,14 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1;
+    
   }
+
   
+  
+
+
+
   textarea{
     background: transparent;
     border:black;
@@ -23,11 +29,13 @@ body {
   
   .description{
     white-space: pre-wrap;
+    border
   }
   
   .time-block{
-    text-align: center;
+    text-align: right;
     border-radius: 15px;
+
   }
   
   .row {
@@ -42,6 +50,8 @@ body {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    padding-top: 15px;
+ 
   }
   
   .past {
@@ -76,3 +86,6 @@ body {
     transition: all .3s ease-in-out;
   }
   
+  .bottom {
+      border-top: 1px solid gray;
+  }
