@@ -21,8 +21,6 @@ This App is used to oragnise your different Tasks set to specific time intervals
 ![Screenshot (25)](https://user-images.githubusercontent.com/94805706/150699196-4ca29caa-a611-4e6f-9919-2008ca988d5b.jpg)
 
 
-
-
 ## Resources
 - W3schools.com
 - StackOverflow
