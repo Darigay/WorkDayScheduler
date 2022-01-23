@@ -1,5 +1,5 @@
 const toDate = new Date();
-document.getElementById("currentDay").innerHTML = toDate;
+document.getElementById("currentDay").innerHTML = moment().format('LLLL');
 
 //var currentHour = toDate.getHours();
 
@@ -14,6 +14,8 @@ document.getElementById("currentDay").innerHTML = toDate;
 
 // set local storage for getItems for hour timeblocks
 
+
+
 function colorBlocks() {
 
     var currentHour = moment().hour();
@@ -23,7 +25,7 @@ function colorBlocks() {
         var colorBlock = $(this).attr("id");
 
         //colorBlock = parseInt(colorBlock[1]);
-        //console.log(colorBlock);
+        console.log(colorBlock);
 
 
        
@@ -34,22 +36,22 @@ function colorBlocks() {
  
            // $(".time-block").addclass("past");
 
-           $(this).addclass("past");
+           $(this).addClass("past");
             
        }
 
-       else if (colorBlock === currentHour) 
+       else if (colorBlock == currentHour) 
         { 
            // $(this).css("background-color","red");
            //$(".time-block").addclass("present");
-           $(this).addclass("present");
+           $(this).addClass("present");
          }
 //
         else {
 
            // $(".time-block").addclass("future");
             //$(this).css("background-color","green");
-            $(this).addclass("future");
+            $(this).addClass("future");
 
         }
 
@@ -64,7 +66,7 @@ $(".saveBtn").on("click",function(){
 
     var task = $(this).parent().attr("id");
     var taskInfo = $(this).siblings(".text").val();
-
+    console.log(taskInfo);
     localStorage.setItem (task, taskInfo);
 
 })
@@ -74,5 +76,14 @@ $(".saveBtn").on("click",function(){
 
 function getTaskInfo () {
 
+
+   for ( var i=9; i<18 ; i++) 
+   {
+     var storageInfo = localStorage.getItem(i);
+     $("#" + i).children(".text").val(storageInfo);
+
+   }
    
 }
+
+getTaskInfo();
