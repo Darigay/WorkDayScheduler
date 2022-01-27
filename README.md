@@ -26,6 +26,9 @@ This App is used to oragnise your different Tasks set to specific time intervals
 - StackOverflow
 - Moment.js 
 
+## Deployed Application
+https://darigay.github.io/WorkDayScheduler/
+
 ## contact
 You can contact me at divya.arigay@gmail.com
 
